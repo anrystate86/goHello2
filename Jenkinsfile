@@ -29,7 +29,7 @@ pipeline {
             steps {
                  sh 'ls -ahl'
                  sh 'pwd'
-                 sh 'go build'
+                 sh 'go build -o helloprogramm'
                  sh 'ls -ahl'
             }
         }
@@ -44,7 +44,7 @@ pipeline {
                     //echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
                     //artifactPath = filesByGlob[0].path;
-                    artifactPath = "go.exe";
+                    artifactPath = "helloprogramm";
                     // Assign to a boolean response verifying If the artifact name exists
                     artifactExists = fileExists artifactPath;
 
