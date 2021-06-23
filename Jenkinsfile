@@ -1,5 +1,4 @@
 pipeline {
-    options { timeout() }
     agent any
     tools {
         go 'go'
