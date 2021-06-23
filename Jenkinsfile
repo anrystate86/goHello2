@@ -9,6 +9,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                 sh 'ls -ahl'
+                 sh 'pwd'
                  sh 'go build'
             }
         }
