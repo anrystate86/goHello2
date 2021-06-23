@@ -1,5 +1,5 @@
 pipeline {
-    options { timestamps() }
+    options { timeout() }
     agent any
     tools {
         go 'go-1.15'
