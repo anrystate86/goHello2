@@ -4,7 +4,7 @@ pipeline {
         go 'go'
     }
     environment {
-        GO111MODULE = 'on'
+        GO111MODULE = 'auto'
     }
     stages {
         stage('build') {
