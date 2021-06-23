@@ -2,7 +2,7 @@ pipeline {
     options { timeout() }
     agent any
     tools {
-        go 'go-1.15'
+        go 'go'
     }
     environment {
         GO111MODULE = 'on'
