@@ -30,6 +30,7 @@ pipeline {
                  sh 'ls -ahl'
                  sh 'pwd'
                  sh 'go build'
+                 sh 'ls -ahl'
             }
         }
         stage("publish to nexus") {
