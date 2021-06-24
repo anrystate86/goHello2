@@ -15,6 +15,7 @@ pipeline {
         NEXUS_REPOSITORY = "golang"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "nexus3"
+        ARTIFACT_NAME = "helloprogramm.run"
     }
     stages {
 //        stage("clone code") {
@@ -29,7 +30,7 @@ pipeline {
             steps {
                  sh 'ls -ahl'
                  sh 'pwd'
-                 sh 'go build -o helloprogramm.run'
+                 sh 'go build -o 'ARTIFACT_NAME //helloprogramm.run'
                  sh 'ls -ahl'
             }
         }
@@ -44,7 +45,7 @@ pipeline {
                     //echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
                     //artifactPath = filesByGlob[0].path;
-                    artifactPath = "helloprogramm.run";
+                    artifactPath = ARTIFACT_NAME;
                     // Assign to a boolean response verifying If the artifact name exists
                     artifactExists = fileExists artifactPath;
 
@@ -80,11 +81,11 @@ pipeline {
                             //version: pom.version,
                             repository: NEXUS_REPOSITORY,
                             credentialsId: NEXUS_CREDENTIAL_ID,
-                            artifacts: [
+                            artifacts: ARTIFACT_NAME //[
                                 // Artifact generated such as .jar, .ear and .war files.
                                 //[//artifactId: pom.artifactId,
                                 //classifier: '',
-                                file: artifactPath//]//,
+                                //file: artifactPath//]//,
                                 //type: pom.packaging],
 
                                 // Lets upload the pom.xml file for additional information for Transitive dependencies
@@ -92,7 +93,7 @@ pipeline {
                                 //classifier: '',
                                 //file: "pom.xml",
                                 //type: "pom"]
-                            ]
+                            //]
                         );
 
                     } else {
