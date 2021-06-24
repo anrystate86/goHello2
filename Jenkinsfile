@@ -85,7 +85,7 @@ pipeline {
                                 // Artifact generated such as .jar, .ear and .war files.
                                 [artifactId: ARTIFACT_NAME,
                                 classifier: '',
-                                file: ARTIFACT_NAME],
+                                file: ARTIFACT_NAME,
                                 type: 'run'],
 
                                 // Lets upload the pom.xml file for additional information for Transitive dependencies
