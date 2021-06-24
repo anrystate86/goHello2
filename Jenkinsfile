@@ -9,8 +9,8 @@ pipeline {
         // Where your Nexus is running
         NEXUS_URL = "192.168.100.14:18081"
         // Repository where we will upload the artifact
-        //NEXUS_REPOSITORY = "golang"
-        NEXUS_REPOSITORY = "nuget-hosted"
+        NEXUS_REPOSITORY = "golang"
+        //NEXUS_REPOSITORY = "nuget-hosted"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "admin"
         ARTIFACT_NAME = "helloprogramm.run"
