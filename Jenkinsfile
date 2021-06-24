@@ -83,7 +83,7 @@ pipeline {
                             credentialsId: NEXUS_CREDENTIAL_ID,
                             artifacts:  [
                                 // Artifact generated such as .jar, .ear and .war files.
-                                [artifactId: 'go',
+                                [artifactId: ARTIFACT_NAME,
                                 classifier: '',
                                 file: ARTIFACT_NAME,
                                 type: ''],
