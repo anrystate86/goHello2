@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    tools {
-        go 'go'
-    }
+//    tools {
+//        go 'go'
+//    }
     environment {
         GO111MODULE = 'auto'
         // This can be nexus3 or nexus2
