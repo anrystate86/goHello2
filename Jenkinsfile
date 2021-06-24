@@ -3,15 +3,16 @@ pipeline {
     environment {
         GO111MODULE = 'auto'
         // This can be nexus3 or nexus2
-        NEXUS_VERSION = "nexus2"
+        NEXUS_VERSION = "nexus3"
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
         NEXUS_URL = "192.168.100.14:18081"
         // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "golang"
+        //NEXUS_REPOSITORY = "golang"
+        NEXUS_REPOSITORY = "nuget-hosted"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "nexus3"
+        NEXUS_CREDENTIAL_ID = "admin"
         ARTIFACT_NAME = "helloprogramm.run"
         ARTIFACT = "helloprogramm"
     }
