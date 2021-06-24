@@ -16,6 +16,7 @@ pipeline {
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "nexus3"
         ARTIFACT_NAME = "helloprogramm.run"
+        ARTIFACT = "helloprogramm"
     }
     stages {
 //        stage("clone code") {
@@ -77,14 +78,14 @@ pipeline {
                             nexusVersion: NEXUS_VERSION,
                             protocol: NEXUS_PROTOCOL,
                             nexusUrl: NEXUS_URL,
-                            //groupId: pom.groupId,
-                            //version: pom.version,
+                            groupId: 'group',
+                            version: '1',
                             repository: NEXUS_REPOSITORY,
                             credentialsId: NEXUS_CREDENTIAL_ID,
                             artifacts:  [
                                 // Artifact generated such as .jar, .ear and .war files.
-                                [artifactId: ARTIFACT_NAME,
-                                classifier: '',
+                                [artifactId: ARTIFACT,
+                                classifier: '1',
                                 file: ARTIFACT_NAME,
                                 type: 'run'],
 
