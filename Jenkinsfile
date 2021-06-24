@@ -12,7 +12,7 @@ pipeline {
         // Where your Nexus is running
         NEXUS_URL = "192.168.100.14:18081"
         // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "central"
+        NEXUS_REPOSITORY = "golang"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "nexus"
     }
