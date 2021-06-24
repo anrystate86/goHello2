@@ -52,18 +52,18 @@ pipeline {
                         //echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         echo "*** File: ${artifactPath}";
                         nexusArtifactUploader {
-                        nexusVersion(NEXUS_VERSION)
-                        protocol(NEXUS_PROTOCOL)
-                        nexusUrl(NEXUS_URL)
+                        nexusVersion('nexus3')
+                        protocol('http')
+                        nexusUrl('192.168.100.14:18081')
                         groupId('sp.sd')
                         version('1.1')
-                        repository(NEXUS_REPOSITORY)
-                        credentialsId(NEXUS_CREDENTIAL_ID)
+                        repository('golang')
+                        credentialsId('nexus')
                         artifact {
                             artifactId('nexus-artifact-uploader')
                             type('go')
                             classifier('debug')
-                            file(artifactPath)
+                            file('helloprogramm')
                         }
                         //artifact {
                         //    artifactId('nexus-artifact-uploader')
