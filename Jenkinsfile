@@ -30,7 +30,7 @@ pipeline {
             steps {
                  sh 'ls -ahl'
                  sh 'pwd'
-                 sh 'go build -o 'ARTIFACT_NAME //helloprogramm.run'
+                 sh 'go build -o $ARTIFACT_NAME' //helloprogramm.run
                  sh 'ls -ahl'
             }
         }
