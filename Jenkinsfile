@@ -81,19 +81,19 @@ pipeline {
                             //version: pom.version,
                             repository: NEXUS_REPOSITORY,
                             credentialsId: NEXUS_CREDENTIAL_ID,
-                            artifacts: ARTIFACT_NAME //[
+                            artifacts:  [
                                 // Artifact generated such as .jar, .ear and .war files.
-                                //[//artifactId: pom.artifactId,
-                                //classifier: '',
-                                //file: artifactPath//]//,
-                                //type: pom.packaging],
+                                [artifactId: ARTIFACT_NAME,
+                                classifier: '',
+                                file: ARTIFACT_NAME],
+                                type: 'run'],
 
                                 // Lets upload the pom.xml file for additional information for Transitive dependencies
                                 //[artifactId: pom.artifactId,
                                 //classifier: '',
                                 //file: "pom.xml",
                                 //type: "pom"]
-                            //]
+                            ]
                         );
 
                     } else {
