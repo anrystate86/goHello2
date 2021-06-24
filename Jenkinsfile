@@ -86,7 +86,7 @@ pipeline {
                                 [artifactId: ARTIFACT_NAME,
                                 classifier: '',
                                 file: ARTIFACT_NAME,
-                                type: ''],
+                                type: 'run'],
 
                                 // Lets upload the pom.xml file for additional information for Transitive dependencies
                                 //[artifactId: pom.artifactId,
