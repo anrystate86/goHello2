@@ -19,20 +19,20 @@ pipeline {
         ARTIFACT = "helloprogramm"
     }
     stages {
-//        stage("clone code") {
-//            steps {
-//                script {
-//                    // Let's clone the source
-//                    git 'https://github.com/danielalejandrohc/cargotracker.git';
-//                }
-//            }
-//        }
+        stage("clone code") {
+            steps {
+                script {
+                    // Let's clone the source
+                    git 'https://github.com/anrystate86/goHello.git';
+                }
+          }
+        }
         stage('build') {
             steps {
-                 sh 'ls -ahl'
-                 sh 'pwd'
+                 //sh 'ls -ahl'
+                 //sh 'pwd'
                  sh 'go build -o $ARTIFACT_NAME' //helloprogramm.run
-                 sh 'ls -ahl'
+                 //sh 'ls -ahl'
             }
         }
         stage("publish to nexus") {
