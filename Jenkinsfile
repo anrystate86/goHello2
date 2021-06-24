@@ -51,19 +51,40 @@ pipeline {
                     if(artifactExists) {
                         //echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         echo "*** File: ${artifactPath}";
-                        nexusArtifactUploader(
-                            nexusVersion: NEXUS_VERSION,
-                            protocol: NEXUS_PROTOCOL,
-                            nexusUrl: NEXUS_URL,
-                            //groupId: pom.groupId,
-                            //version: pom.version,
-                            repository: NEXUS_REPOSITORY,
-                            credentialsId: NEXUS_CREDENTIAL_ID,
-                            artifacts: [
-                                // Artifact generated such as .jar, .ear and .war files.
-                                [//artifactId: pom.artifactId,
+                        nexusArtifactUploader {
+                        nexusVersion(NEXUS_VERSION)
+                        protocol(NEXUS_PROTOCOL)
+                        nexusUrl(NEXUS_URL)
+                        groupId('sp.sd')
+                        version('1.1')
+                        repository(NEXUS_REPOSITORY)
+                        credentialsId(NEXUS_CREDENTIAL_ID)
+                        artifact {
+                            artifactId('nexus-artifact-uploader')
+                            type('go')
+                            classifier('debug')
+                            file(artifactPath)
+                        }
+                        //artifact {
+                        //    artifactId('nexus-artifact-uploader')
+                        //    type('hpi')
+                        //    classifier('debug')
+                        //    file('nexus-artifact-uploader.hpi')
+                        //}
+                      }
+//                        nexusArtifactUploader(
+//                            nexusVersion: NEXUS_VERSION,
+//                            protocol: NEXUS_PROTOCOL,
+//                            nexusUrl: NEXUS_URL,
+//                            //groupId: pom.groupId,
+//                            //version: pom.version,
+//                            repository: NEXUS_REPOSITORY,
+//                            credentialsId: NEXUS_CREDENTIAL_ID,
+//                            artifacts: [
+//                                // Artifact generated such as .jar, .ear and .war files.
+//                                [//artifactId: pom.artifactId,
                                 //classifier: '',
-                                file: artifactPath]//,
+//                                file: artifactPath]//,
                                 //type: pom.packaging],
 
                                 // Lets upload the pom.xml file for additional information for Transitive dependencies
@@ -71,8 +92,8 @@ pipeline {
                                 //classifier: '',
                                 //file: "pom.xml",
                                 //type: "pom"]
-                            ]
-                        );
+//                            ]
+//                        );
 
                     } else {
                         error "*** File: ${artifactPath}, could not be found";
