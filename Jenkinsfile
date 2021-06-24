@@ -6,7 +6,7 @@ pipeline {
     environment {
         GO111MODULE = 'auto'
         // This can be nexus3 or nexus2
-        NEXUS_VERSION = "nexus3"
+        NEXUS_VERSION = "nexus2"
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
@@ -14,7 +14,7 @@ pipeline {
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "golang"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "nexus"
+        NEXUS_CREDENTIAL_ID = "nexus3"
     }
     stages {
 //        stage("clone code") {
@@ -29,7 +29,7 @@ pipeline {
             steps {
                  sh 'ls -ahl'
                  sh 'pwd'
-                 sh 'go build -o helloprogramm'
+                 sh 'go build -o helloprogramm.run'
                  sh 'ls -ahl'
             }
         }
@@ -44,7 +44,7 @@ pipeline {
                     //echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
                     //artifactPath = filesByGlob[0].path;
-                    artifactPath = "helloprogramm";
+                    artifactPath = "helloprogramm.run";
                     // Assign to a boolean response verifying If the artifact name exists
                     artifactExists = fileExists artifactPath;
 
@@ -52,18 +52,18 @@ pipeline {
                         //echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         echo "*** File: ${artifactPath}";
                         nexusArtifactUploader {
-                        nexusVersion('nexus3')
-                        protocol('http')
-                        nexusUrl('192.168.100.14:18081')
-                        groupId('sp.sd')
-                        version('1.1')
+                        nexusVersion(NEXUS_VERSION)
+                        protocol(NEXUS_PROTOCOL)
+                        nexusUrl(NEXUS_URL)
+                        groupId('test')
+                        version('1')
                         repository('golang')
-                        credentialsId('nexus')
+                        credentialsId('nexus3')
                         artifact {
-                            artifactId('nexus-artifact-uploader')
-                            type('go')
+                            artifactId(artifactPath)
+                            type('run')
                             classifier('debug')
-                            file('helloprogramm')
+                            file(artifactPath)
                         }
                         //artifact {
                         //    artifactId('nexus-artifact-uploader')
