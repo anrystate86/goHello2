@@ -42,20 +42,20 @@ pipeline {
                     if(artifactExists) {
                         //echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         echo "*** File: ${artifactPath}";
-//                        nexusArtifactUploader {
-//                        nexusVersion(NEXUS_VERSION)
-//                        protocol(NEXUS_PROTOCOL)
-//                        nexusUrl(NEXUS_URL)
-//                        groupId('test')
-//                        version('1')
-//                        repository('golang')
-//                        credentialsId('nexus3')
-//                        artifact {
-//                            artifactId(artifactPath)
-//                            type('run')
-//                            classifier('debug')
-//                            file(artifactPath)
- //                       }
+                        nexusArtifactUploader {
+                        nexusVersion(NEXUS_VERSION)
+                        protocol(NEXUS_PROTOCOL)
+                        nexusUrl(NEXUS_URL)
+                        groupId('test')
+                        version('1')
+                        repository(NEXUS_REPOSITORY)
+                        credentialsId('admin')
+                        artifact {
+                            artifactId(artifactPath)
+                            type('run')
+                            classifier('debug')
+                            file(artifactPath)
+                        }
                         //artifact {
                         //    artifactId('nexus-artifact-uploader')
                         //    type('hpi')
@@ -63,21 +63,21 @@ pipeline {
                         //    file('nexus-artifact-uploader.hpi')
                         //}
 //                      }
-                        nexusArtifactUploader(
-                            nexusVersion: NEXUS_VERSION,
-                            protocol: NEXUS_PROTOCOL,
-                            nexusUrl: NEXUS_URL,
-                            groupId: 'group',
-                            version: '1',
-                            repository: NEXUS_REPOSITORY,
-                            credentialsId: NEXUS_CREDENTIAL_ID,
-                            artifacts:  [
-                                [artifactId: ARTIFACT,
-                                classifier: '1',
-                                file: ARTIFACT_NAME,
-                                type: 'run'],
-                            ]
-                        );
+//                        nexusArtifactUploader(
+//                            nexusVersion: NEXUS_VERSION,
+//                            protocol: NEXUS_PROTOCOL,
+//                            nexusUrl: NEXUS_URL,
+//                            groupId: 'group',
+//                            version: '1',
+//                            repository: NEXUS_REPOSITORY,
+//                            credentialsId: NEXUS_CREDENTIAL_ID,
+//                            artifacts:  [
+//                                [artifactId: ARTIFACT,
+//                                classifier: '1',
+//                                file: ARTIFACT_NAME,
+//                                type: 'run'],
+//                            ]
+//                        );
 
                     } else {
                         error "*** File: ${artifactPath}, could not be found";
