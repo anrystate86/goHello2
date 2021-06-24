@@ -43,26 +43,26 @@ pipeline {
                         //echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         echo "*** File: ${artifactPath}";
                         nexusArtifactUploader {
-                        nexusVersion(NEXUS_VERSION)
-                        protocol(NEXUS_PROTOCOL)
-                        nexusUrl(NEXUS_URL)
-                        groupId('test')
-                        version('1')
-                        repository(NEXUS_REPOSITORY)
-                        credentialsId('admin')
-                        artifact {
+                          nexusVersion(NEXUS_VERSION)
+                          protocol(NEXUS_PROTOCOL)
+                          nexusUrl(NEXUS_URL)
+                          groupId('test')
+                          version('1')
+                          repository(NEXUS_REPOSITORY)
+                          credentialsId('admin')
+                          artifact {
                             artifactId(artifactPath)
                             type('run')
                             classifier('debug')
                             file(artifactPath)
-                        }
+                          }
                         //artifact {
                         //    artifactId('nexus-artifact-uploader')
                         //    type('hpi')
                         //    classifier('debug')
                         //    file('nexus-artifact-uploader.hpi')
                         //}
-//                      }
+                      }
 //                        nexusArtifactUploader(
 //                            nexusVersion: NEXUS_VERSION,
 //                            protocol: NEXUS_PROTOCOL,
