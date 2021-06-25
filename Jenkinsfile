@@ -8,7 +8,7 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
         //NEXUS_URL = "192.168.100.14:18081"
-        NEXUS_URL = "hostname -i".execute().text+":18081"
+        NEXUS_URL = Jenkins.getInstance().getComputer('').getHostName()
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "golang"
         //NEXUS_REPOSITORY = "nuget-hosted"
