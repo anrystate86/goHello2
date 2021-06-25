@@ -20,8 +20,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                 sh 'go build -o $ARTIFACT_NAME' //helloprogramm.run
-                 echo "${internal_ip}"
+                 sh 'go build -o $ARTIFACT_NAME'; //helloprogramm.run
+                 println "ifconfig".execute().text;
             }
         }
         stage("publish to nexus") {
