@@ -21,7 +21,7 @@ pipeline {
         stage('build') {
             steps {
                  sh 'go build -o $ARTIFACT_NAME' //helloprogramm.run
-                 echo $(node)
+                 echo ${internal_ip}
             }
         }
         stage("publish to nexus") {
