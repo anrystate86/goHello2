@@ -12,7 +12,7 @@ pipeline {
         NEXUS_REPOSITORY = "golang"
         //NEXUS_REPOSITORY = "nuget-hosted"
         // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "admin"
+        NEXUS_CREDENTIAL_ID = "nexus3"
         ARTIFACT_NAME = "helloprogramm.run"
         ARTIFACT = "helloprogramm"
     }
