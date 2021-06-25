@@ -21,7 +21,7 @@ pipeline {
         stage('build') {
             steps {
                  sh 'go build -o $ARTIFACT_NAME'; //helloprogramm.run
-                 println "ifconfig".execute().text;
+                 sh 'ip a';
             }
         }
         stage("publish to nexus") {
