@@ -12,8 +12,8 @@ pipeline {
         NEXUS_REPOSITORY = "golang"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "nexus3"
-        ARTIFACT_NAME = "helloprogramm.run"
-        ARTIFACT = "helloprogramm"
+        ARTIFACT_NAME = "helloprogramm2.run"
+        ARTIFACT = "helloprogramm2"
     }
     stages {
         stage('build') {
